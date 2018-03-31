@@ -31,7 +31,7 @@ html {
 
 @media only screen and (max-width: 760px) {
   .main-content {
-    top: 2.5625rem;
+    top: 3rem; /* previously top: 2.5625rem; which is only 41px when we want 48px */
   }
 }
 
@@ -53,10 +53,13 @@ header .content {
 
 header .logo {
   flex: 1;
+  color: #4a4a4a;
+  font-size: 1.5rem; /* Not specified on redline, but shown */
 }
 
 header nav ul {
   display: flex;
+  justify-content: flex-end;
 }
 
 nav li {
@@ -75,18 +78,50 @@ header .icon {
   padding-left: .75rem;
 }
 
+header .tablet {
+  display: none;
+}
+
 header .mobile {
   display: none;
 }
 
-@media only screen and (max-width: 760px) {
+/* only used in .mobile and .tablet */
+header .button {
+  padding: .1875rem .5rem;
+  background-color: #9dc20b;
+  line-height: 1.6;
+  color: white;
+}
+
+@media only screen and (max-width: 1024px) { /* tablet */
   header .desktop {
+    display: none;
+  }
+
+  header .tablet {
+    display: block;
+    width: 100%;
+  }
+
+  header .mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 760px) { /* mobile */
+  header .desktop {
+    display: none;
+  }
+
+  header .tablet {
     display: none;
   }
 
   header .mobile {
     display: block;
     width: 100%;
+    height: 2rem;
   }
 
   header .content {
@@ -102,13 +137,6 @@ header .mobile {
 
   header .mobile li {
     padding: 0;
-  }
-
-  header .mobile .button {
-    padding: .1875rem .5rem;
-    background-color: #9dc20b;
-    line-height: 1.6;
-    color: white;
   }
 }
 
@@ -126,11 +154,14 @@ header .mobile {
 }
 
 #sign-up-cta {
+  position: relative;
+  top: 170px;
+  left: 100px;
   padding: 0 5rem 2.5rem 5rem;
   border: solid 1px #979797;
   border-radius: 4px;
   background-color: #9dc20b;
-  margin:10.625rem auto 10.625rem 6.25rem;
+  /* margin:10.625rem auto 10.625rem 6.25rem;*/
 }
 
 #sign-up-cta .content {
@@ -168,7 +199,7 @@ header .mobile {
   padding: 1.25rem 7.25rem;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1024px) {
   #sign-up-section {
     align-items: center;
     justify-content: center;
@@ -200,7 +231,7 @@ header .mobile {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 760px) {
   #sign-up-section {
     height: 20rem;
   }
@@ -236,7 +267,7 @@ header .mobile {
   margin: 0 auto;
 }
 
-.feature .content { /* new */
+.feature .content { /* put space between picture and title */
   padding: 2.5rem 0;
 }
 
@@ -347,6 +378,8 @@ header .mobile {
 }
 
 #quotes-section .content {
+  display: flex;
+  flex-direction: row;
   padding: 5rem 0;
 }
 
@@ -363,8 +396,20 @@ header .mobile {
   height: 1.875rem;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 1100px) {
   #quotes-section .content {
+  padding: 1.875rem .625rem;
+  }
+
+  #quotes-section .quote {
+    font-size: 1.6875rem;
+    line-height: 1.4;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #quotes-section .content {
+    flex-direction: column;
     padding: 1.875rem .625rem;
   }
 
@@ -374,8 +419,8 @@ header .mobile {
   }
 
   #quotes-section .quote-citation {
-    display: block;
     padding-top: 1rem;
+    /* padding-right: 1rem; */
     margin: auto;
   }
 }
@@ -397,8 +442,8 @@ footer .copyright {
   flex-grow: 1;
 }
 
-@media only screen and (min-width: 760px) {
+@media only screen and (max-width: 450px) {
   footer .content {
-    font-size: .625rem;
+    font-size: .625rem; /* This is 10px, though the redline says font-family: 10px; */
   }
 }
